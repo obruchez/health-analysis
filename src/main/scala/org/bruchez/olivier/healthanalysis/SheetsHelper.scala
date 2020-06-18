@@ -39,6 +39,8 @@ case class SheetRow(values: IndexedSeq[AnyRef]) {
     case number: java.lang.Number => number.doubleValue
     case string: String           => string.toDouble
   }
+
+  def string(columnIndex: Int): String = values(columnIndex).toString
 }
 
 case class SheetValues(values: IndexedSeq[SheetRow]) {

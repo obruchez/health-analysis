@@ -27,7 +27,7 @@ object HealthJournalVariable {
 
 case class ColumnToSplit(index: Int,
                          toLowerCase: Boolean,
-                         separators: Seq[String],
+                         separator: String,
                          tokensToIgnore: Seq[String],
                          tokensToTranslate: Map[String, String])
 
@@ -40,7 +40,7 @@ object ColumnToSplit {
       ColumnToSplit(
         index = columnString.toInt,
         toLowerCase = columnConfig.getBoolean("toLowerCase"),
-        separators = Try(columnConfig.getAnyRefList("separators").asScala.toSeq.map(_.toString)).getOrElse(Seq()),
+        separator = columnConfig.getString("separator"),
         tokensToIgnore =
           Try(columnConfig.getAnyRefList("tokensToIgnore").asScala.toSeq.map(_.toString)).getOrElse(Seq()),
         tokensToTranslate =
@@ -48,7 +48,7 @@ object ColumnToSplit {
       )
 
   private def tokensToTranslate(configList: ConfigList): Map[String, String] = {
-    assert(configList.unwrapped().size() == 2,
+    assert(configList.unwrapped().size() % 2 == 0,
            "Number of strings in 'tokensToIgnore' list must be even (key-value pairs)")
     configList.unwrapped().asScala.map(_.toString).grouped(2).map(group => group.head -> group(1)).toMap
   }

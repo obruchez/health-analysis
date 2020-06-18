@@ -12,9 +12,17 @@ case class HealthJournal(config: HealthJournalConfig) {
       val row = allValues.row(rowIndex)
       val date = row.localDate(config.dateColumnIndex)
 
-      config.variables flatMap { variable =>
+      val simpleColumnVariables = config.variables flatMap { variable =>
         Try(HealthVariable(date, name = variable.variableName, value = row.double(variable.columnIndex))).toOption
       }
+
+      val splitColumnVariables = config.columnsToSplit.flatMap { columnToSplit =>
+        row.string(columnToSplit.index).split(columnToSplit.separator).toSeq.map { name =>
+          HealthVariable(date, name = name, value = 1.0)
+        }
+      }
+
+      simpleColumnVariables ++ splitColumnVariables
     }).flatten
 
     HealthVariables(variables)

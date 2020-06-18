@@ -28,13 +28,13 @@ object HealthAnalysis {
 
     //testWithGoogleSample()
 
-    println(s"config.healthJournalConfig = ${config.healthJournalConfig}")
+    //println(s"config.healthJournalConfig = ${config.healthJournalConfig}")
 
     val healthJournal = HealthJournal(config.healthJournalConfig)
 
     val healthJournalVariables = healthJournal.healthVariables()
 
-    //println(s"healthJournalVariables = $healthJournalVariables")
+    println(s"healthJournalVariables = $healthJournalVariables")
   }
 
   def testWithGoogleSample()(implicit sheets: Sheets): Unit = {
