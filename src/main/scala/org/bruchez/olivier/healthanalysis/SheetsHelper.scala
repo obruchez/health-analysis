@@ -1,8 +1,9 @@
 package org.bruchez.olivier.healthanalysis
 
-import java.time.{LocalDate, ZoneId}
 import com.google.api.services.sheets.v4.Sheets
 import org.apache.poi.ss.usermodel.DateUtil
+
+import java.time.{LocalDate, ZoneId}
 import scala.jdk.CollectionConverters._
 
 object SheetsHelper {

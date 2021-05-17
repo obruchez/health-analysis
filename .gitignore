@@ -1,20 +1,21 @@
 *.class
 *.log
+dist
 logs
 project/project
 project/target
 target
 tmp
 .history
-dist
-/.idea
-/*.iml
-/out
-/.idea_modules
+/.bsp
 /.classpath
+/.idea
+/.idea_modules
 /.project
-/RUNNING_PID
 /.settings
+/out
+/RUNNING_PID
+/*.iml
 
 health-analysis-credentials.json
 health-analysis-tokens

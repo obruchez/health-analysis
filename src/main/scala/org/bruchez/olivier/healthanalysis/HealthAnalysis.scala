@@ -1,6 +1,7 @@
 package org.bruchez.olivier.healthanalysis
 
 import com.google.api.services.sheets.v4.Sheets
+
 import java.nio.file.Path
 import scala.jdk.CollectionConverters._
 
@@ -54,7 +55,9 @@ object HealthAnalysis {
 
         for (row <- values.asScala) {
           // Print columns A and E, which correspond to indices 0 and 4.
+          // scalastyle:off magic.number
           System.out.printf("%s, %s\n", row.get(0), row.get(4))
+          // scalastyle:on magic.number
         }
     }
   }

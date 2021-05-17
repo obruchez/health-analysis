@@ -1,6 +1,7 @@
 package org.bruchez.olivier.healthanalysis
 
 import com.typesafe.config.{ConfigFactory, ConfigList, Config => TypesafeConfig}
+
 import java.nio.file.{Path, Paths}
 import scala.jdk.CollectionConverters._
 import scala.util.Try

@@ -1,1 +1,1 @@
-addSbtPlugin("com.beautiful-scala" % "sbt-scalastyle" % "1.4.0")
+addSbtPlugin("com.beautiful-scala" % "sbt-scalastyle" % "1.5.0")
